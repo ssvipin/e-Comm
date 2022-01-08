@@ -35,12 +35,21 @@ app.get("/products",(req,res,next) => {
     string = req.query.name;
     var result = array[0];
     var data = [];
-    result.forEach((item) => {
-        if(item.title.includes(string))
-        {
+    if(!string)
+    {
+        result.forEach((item) => {
             data.push(item);
-        }
-    })
+        })
+    }
+    else
+    {
+        result.forEach((item) => {
+            if(item.title.includes(string))
+            {
+                data.push(item);
+            }
+        })
+    }
 
     res.render('pages/products',{data});
     next();

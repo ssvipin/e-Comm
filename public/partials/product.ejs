@@ -1,8 +1,17 @@
-<div class="card" style="width: 18rem;">
+<div class="card height width mt-5 p-2" style="width: 18rem;">
     <img src = <%= user.image %> class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title"> <%= user.title %> </h5>
-      <p class="card-text"><%= user.description %></p>
-      <a href="#" class="btn btn-primary">Cart</a>
+      <h5 class="card-title primary-color"> <%= user.title %> </h5>
+      <!-- <p class="card-text secondry-color"><%= user.description %></p> -->
+      <div class = "flex">
+          <p><%= user.category %></p>
+          <p><%= user.price %>$</p>
+      </div>
+      <div class = "flex">
+          <!-- can add heart symbol for rate  -->
+          <p>Rate</p>
+        <p><%= user.rating.rate %>k</p>
+      </div>
+      <a href="#" class="btn btn-primary position">Add to Cart</a>
     </div>
   </div>
