@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>This is great</h1>
+    <p>We At BorderFree Welcoming you</p>
+  </div>
+</main>
+<div>
+  <form method = "GET" action = "/products">
+    <label>Enter your Search </label>
+    <input type = "text" placeholder = "Type for Search" name = "name">
+    <button>Search</button>
+  </form>
+</div>
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
