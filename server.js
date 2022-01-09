@@ -1,13 +1,13 @@
 const express = require('express');
 const {MongoClient} = require('mongodb')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
 
 const app = express();
 
 
-
-
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json());
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.set("views","./public")
@@ -16,7 +16,7 @@ app.set("views","./public")
 const url = "mongodb+srv://vipin:vipin@cluster0.bzaez.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 var array = [];
-// Without middleware
+// With middleware
 app.get('/', function(req, res,next){
     res.render('pages/index');
     next();
@@ -32,6 +32,8 @@ app.get("/products",(req,res,next) => {
             array.push(result);
         });
     })
+    // we use when method is post but in get data is goes in url
+    // console.log(req.body.name);
     string = req.query.name;
     var result = array[0];
     var data = [];
@@ -54,6 +56,10 @@ app.get("/products",(req,res,next) => {
     res.render('pages/products',{data});
     next();
 
+})
+
+app.get('/cart',(req,res,next) => {
+    res.render('pages/cart');
 })
 
 app.listen(8080,(err) => {
